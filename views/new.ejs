@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+
+
+    <div class="ui maintext container segment">
+        <div class="ui huge header">New Blog</div>
+        <form class="ui form" action="/blogs" method="POST">
+            <div class="field">
+                <label for="title">title</label>
+                <input type="text" name="blog[title]" placeholder="title">
+            </div>
+            <div class="field">
+                <label for="image">title</label>
+                <input type="text" name="blog[image]" placeholder="image">
+            </div>
+            <div class="field">
+                <label for="blog post">title</label>
+                <textarea name="blog[body]"></textarea>
+            </div>            
+            <button class="ui inverted teal button">submit</button>
+        </form>
+    </div>
+
+
+    <% include ./partials/footer %>
