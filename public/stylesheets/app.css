@@ -12,5 +12,9 @@ i.icon {
 
 body {
 	background-color: rgb(43, 69, 73);
-	margin-top: 60px;
+    margin-top: 60px;
+}
+
+#head {
+    color: rgb(82, 177, 177);
 }
