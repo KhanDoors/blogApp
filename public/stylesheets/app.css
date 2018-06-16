@@ -9,3 +9,8 @@ i.icon {
 #index {
     margin-top: 3em;
 }
+
+body {
+	background-color: rgb(43, 69, 73);
+	margin-top: 60px;
+}
