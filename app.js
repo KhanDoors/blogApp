@@ -1,12 +1,15 @@
 var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
+var methodOverride = require("method-override");
+
 var app = express();
 
 mongoose.connect("mongodb://localhost/blog_app");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride("_method"));
 
 var blogSchema = new mongoose.Schema({
     title: String,
@@ -78,6 +81,26 @@ app.get("/blogs/:id/edit", function(req,res){
         }
     });
 });
+
+//update route
+app.put("/blogs/:id", function(req,res){
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
+        if(err){
+            res.redirect("/blogs");
+        }else{
+            res.redirect("/blogs/" + req.params.id);
+        }
+    });
+});
+
+//Delete Route
+app.delete("/blogs/:id", function(req,res){
+    res.send("the delete route");
+});
+
+
+
+
 
 
 var PORT = process.env.PORT || 3000;
